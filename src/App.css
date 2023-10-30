@@ -1,0 +1,29 @@
+.books-section{
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.reading-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 20px;  
+  justify-items: center;
+  background-color: #333131;
+}
+
+.book {
+  cursor: pointer;
+}
+
+.book:hover {
+  opacity: 0.02;  
+}
+
+.sinopsis {
+  font-size: medium;
+  width: 100%;
+  padding: 8px;
+}
