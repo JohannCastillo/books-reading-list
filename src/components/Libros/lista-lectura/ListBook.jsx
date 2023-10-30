@@ -24,7 +24,8 @@ export default function ListBook({ book, removeBook }) {
     <>
       <div className="relative h-fit">
         <Button
-          className="z-[2] flex items-center justify-center absolute top-[-1px] right-[-2px] bg-red-500 w-[10px] h-[25px] hover:bg-red-600"
+          type="danger"
+          className="bg-red-500 hover:bg-red-600 z-[2] flex items-center justify-center absolute top-[-1px] right-[-2px] w-[10px] h-[25px]"
           onClick={removeBook}
         >
           X

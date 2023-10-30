@@ -11,6 +11,7 @@ export default function Book({ book, bookDetails, className, detailsClassName, o
             alt={book.title}
             className={className}
             onClick={onclick}
+            style={{touchAction: 'manipulation'}}
           />
         </div>
         <div

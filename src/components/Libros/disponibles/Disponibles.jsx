@@ -47,7 +47,7 @@ export default function Availables() {
                 key={item.ISBN}
                 book={item}
                 bookDetails={bookDetails(item)}
-                className="h-[300px] hover:cursor-move"
+                className="h-[250px] w-[200px] md:w-[250px] md:h-[300px] hover:cursor-move"
                 detailsClassName={"pt-2 h-[96%]"}
                 onclick={() => book.addToReadList(item)}
               />
