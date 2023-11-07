@@ -1,6 +1,5 @@
-import ListBook from "./ListBook";
-import { useBookContext } from "../../../providers/BookProvider";
-import { useEffect } from "react";
+import ListBook from "@/components/Libros/lista-lectura/ListBook";
+import { useBookContext } from "@/providers/BookProvider";
 
 export default function ReadList({ onCloseClick }) {
   const bookHook = useBookContext();
@@ -25,23 +24,28 @@ export default function ReadList({ onCloseClick }) {
 
   return (
     <>
-      <h2 className="bg-[#242424] text-xl py-2 sticky top-0 relative">
-        Lista de lectura ({bookHook.filteredReadList.length})
+      <header className="bg-[#242424] text-xl py-2 sticky top-0 relative">
+        <h2>Lista de lectura ({bookHook.filteredReadList.length})</h2>
         <button
           className="md:hidden absolute right-[5px] top-[20%] flex items-center justify-center border rounded-[50px] bg-transparent hover:bg-[#181818] w-[30px] h-[30px]"
           onClick={onCloseClick}
         >
           <span className="text-[10px]">X</span>
         </button>
-      </h2>
-      <div
-        id="reading-list"
-        onDragOver={onDragOver}
-        onDrop={onDropAvailableBook}
-        className="reading-list overflow-auto h-[85vh] pb-[60px] relative"
-      >
-        {getLibros()}
-      </div>
+      </header>
+      <section>
+        <article className="reading-list-background relative">
+          <div
+            id="reading-list"
+            onDragOver={onDragOver}
+            onDrop={onDropAvailableBook}
+            className="reading-list overflow-auto max-h-[85vh] pb-[60px]"
+          >
+            {getLibros()}
+          </div>
+        </article>
+      </section>
+      
     </>
   );
 

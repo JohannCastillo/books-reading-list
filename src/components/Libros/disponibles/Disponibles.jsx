@@ -1,6 +1,6 @@
-import Filtros from "../filtros/Filtros";
-import Book from "../../common/Book";
-import { useBookContext } from "../../../providers/BookProvider";
+import Filtros from "@/components/Libros/filtros/Filtros";
+import Book from "@/components/common/Book";
+import { useBookContext } from "@/providers/BookProvider";
 
 export default function Availables() {
   const book = useBookContext();

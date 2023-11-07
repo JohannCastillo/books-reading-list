@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { useBook } from "../hooks/UseBook";
+import { useBook } from "@/hooks/UseBook";
 
 const BookContext = createContext()
 

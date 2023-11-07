@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-import Availables from "./components/Libros/disponibles/Disponibles";
-import ReadList from "./components/Libros/lista-lectura/ReadList";
-import { BookProvider } from "./providers/BookProvider";
-import Button from "./components/common/Button";
+import Availables from "@/components/Libros/disponibles/Disponibles";
+import ReadList from "@/components/Libros/lista-lectura/ReadList";
+import { BookProvider } from "@/providers/BookProvider";
+import Button from "@/components/common/Button";
 
 function App() {
   const screenWidth = window.innerWidth;
@@ -25,7 +25,6 @@ function App() {
             <section className="p-8 w-full md:w-[60%]">
               <Availables />
             </section>
-
             <aside
               id="aside"
               className="z-[1] items-center fixed w-[75%] md:w-[35%] h-[85vh] right-2 mt-8 border rounded-lg text-center overflow-hidden"

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import books from "../data/books.json";
+import { BOOKS } from '@/constants/book_data'
 
 import {
   storageSetBook,
@@ -8,31 +8,10 @@ import {
   getReadListFromStorage,
 } from "../helpers/localstorage";
 
-const BOOKS = books?.library.map((book) => {
-  return {
-    ISBN: book.book.ISBN,
-    title: book.book.title,
-    pages: book.book.pages,
-    genre: book.book.genre,
-    cover: book.book.cover,
-    synopsis: book.book.synopsis,
-    year: book.book.year,
-    author: book.book.author,
-  };
-});
-
 const INITIAL_DATA = {
   readList: getReadListFromStorage(BOOKS),
   availableBooks: getAvailableBooksFromStorage(BOOKS),
 };
-
-//Return of all genres
-export const GENRES = ["Todos", ...new Set(BOOKS.map((book) => book.genre))];
-
-//Return de num of pages of each book to set the range step in the filter
-export const MAXPAGES = BOOKS.reduce((a, b) => {
-  return a.pages > b.pages ? a : b;
-}).pages;
 
 const INITIAL_FILTERS = {
   paginas: 0,
@@ -47,9 +26,10 @@ export function useBook() {
   const [filteredReadList, setFilteredReadList] = useState(INITIAL_DATA.readList);
   
   const filter = useRef(INITIAL_FILTERS);
-
-  function changeFilter(e) {
+ 
+  function changeFilter(e){
     const { name, value } = e.target;
+
     const regex = /^[0-9]*$/g;
 
     if (name === "paginas" && !value.match(regex)) return;
@@ -58,7 +38,7 @@ export function useBook() {
       ...filter.current,
       [name]: value !== "" ? value : 0,
     };
-
+  
     setFilteredBooks(filterBooks(books));
     setFilteredReadList(filterBooks(readList));
   }
@@ -67,7 +47,7 @@ export function useBook() {
     return books.filter((book) => {
       const filterPages =
         filter.current.paginas != INITIAL_FILTERS.paginas
-          ? book.pages == filter.current.paginas
+          ? book.pages <= filter.current.paginas
           : true;
       const filterGenres =
         filter.current.genero !== INITIAL_FILTERS.genero

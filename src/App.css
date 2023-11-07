@@ -11,7 +11,12 @@
   gap: 8px;
   padding: 20px;  
   justify-items: center;
+  max-height: 85vh;
+}
+
+.reading-list-background{
   background-color: #333131;
+  height: 85vh;
 }
 
 .book {

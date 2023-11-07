@@ -1,5 +1,5 @@
-import Book from "../../common/Book";
-import Button from "../../common/Button";
+import Book from "@/components/common/Book";
+import Button from "@/components/common/Button";
 
 export default function ListBook({ book, removeBook }) {
   function bookDetails(book) {
@@ -25,7 +25,7 @@ export default function ListBook({ book, removeBook }) {
       <div className="relative h-fit">
         <Button
           type="danger"
-          className="bg-red-500 hover:bg-red-600 z-[2] flex items-center justify-center absolute top-[-1px] right-[-2px] w-[10px] h-[25px]"
+          className="bg-red-500 hover:bg-red-600 z-[2] flex items-center justify-center absolute top-[-1px] right-[-2px] w-[25px] h-[20px] text-sm px-0"
           onClick={removeBook}
         >
           X

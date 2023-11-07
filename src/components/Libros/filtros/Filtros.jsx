@@ -1,14 +1,15 @@
-import { GENRES, MAXPAGES } from "../../../hooks/UseBook"; 
-import { useBookContext } from "../../../providers/BookProvider";
+import { GENRES, MAXPAGES } from "@/constants/book_data"; 
+import { useBookContext } from "@/providers/BookProvider";
 
 export default function Filtros(){
     const genres = [...GENRES];
     const useBook = useBookContext();
+    
     return (
         <>
         <div className="flex flex-col md:flex-row gap-[30px] [&>div]:flex [&>div]:flex-col [&>div>label]:mb-4">
           <div className="w-[200px]">
-            <label htmlFor="paginas">Filtrar por páginas</label>
+            <label htmlFor="paginas">Páginas</label>
             <input
               onChange={useBook.changeFilter}
               type="range"
@@ -17,17 +18,20 @@ export default function Filtros(){
               min={0}
               max={MAXPAGES}
             />
-            <input
-              onChange={useBook.changeFilter}
-              name="paginas"
-              type="text"
-              className="text-sm w-[80px] mt-2 rounded-md pl-2"
-              value={
-                useBook.filter.current.paginas > 0
-                  ? useBook.filter.current.paginas
-                  : ""
-              }
-            />
+            <div>
+              <span className="mr-2">Máx.</span>
+              <input
+                onChange={useBook.changeFilter}
+                name="paginas"
+                type="text"
+                className="text-sm w-[80px] mt-2 rounded-md pl-2"
+                value={
+                  useBook.filter.current.paginas > 0
+                    ? useBook.filter.current.paginas
+                    : ""
+                }
+              />
+            </div>
           </div>
           <div>
             <label htmlFor="genero">Género</label>
